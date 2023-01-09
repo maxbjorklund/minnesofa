@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&family=Poppins:wght@400;500;700;900&family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="client.js"></script>
+    <title>Sectionals</title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="header__title"><img src="img/logo1.png" alt="pic" width="250px"></a>
+    <ul class="header__list">
+      <div class="header__links">
+          <li><a href="sectionals.html">Sectionals</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+        </div>
+    </ul>
+      <a href="#" class="header__instagram"><img src="img/instagram.png" width="40px" alt="instagram logo"></a>
+      <a href="#" class="header__facebook"><img src="img/facebook.png" width="40px" alt="instagram logo"></a>
+   </div>
+   <div id="app">
+    <div class="sectionals__background">
+    <h1 class="sectionals__header">Sectionals For Sale</h1>
+    <hr class="sectionals__line" width="80%">
+      <div class= "couch__list" v-for="(couch, index) in couches">
+          <div class="couch__container" @mouseenter="displayArrow(index)"
+          @mouseleave="removeArrow(index)">
+            <img :src="couches[index].current" 
+             @click="nextImage(couches[index].key)" 
+             class="couch__image">
+             <img v-if="couches[index].hover" @click="nextImage(couches[index].key)" 
+             src="img/arrowright.png" alt="arrow pic" id="couch__container__arrow">
+            <p>{{couches[index].title}}</p>
+            <p>{{couches[index].price}}</p>
+            <button class="couch__button" @click="scroll">More Information</button>
+          </div>
+        </div>
+      <hr class="sectionals__line__form" width="80%">
+      <h1 class="sectionals__contact">Contact Us</h1>
+      <div class="sectionals__form">
+        <form action="connect.php" method="post">
+          <input type="text" name="Name" id="name" placeholder="Your Name" required>
+          <input type="email" name="Email" id="email" placeholder="Email Address" required>
+          <input type="phone" name="Phone" id="phone" placeholder="phone number">
+          <select name="Sectional" id="sectionals__menu">
+              <option value="">--Select a Sectional--</option>
+              <div v-for="(couch, index) in couches">
+              <option>{{couches[0].title}}</option>
+              <option>{{couches[1].title}}</option>
+              <option>{{couches[2].title}}</option>
+              <option>{{couches[3].title}}</option>
+              <option>{{couches[4].title}}</option>
+              <option>{{couches[5].title}}</option>
+              <option>{{couches[6].title}}</option>
+              <option>{{couches[7].title}}</option>
+            </div>
+            </select>
+          <textarea name ="Message" type="couch" id="form__title" row="2" placeholder="Message" v-repeat="couches">{{title}}</textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div class="footer__container__sectionals">
+      <div class="footer">
+        <div class="footer__heading">
+          <h2>contact us</h2>
+          <a href="#">763-280-1914</a>
+          <a href="#">admin@minnesofafurniture.com</a>
+        </div>
+        <div class="footer__heading">
+          <h2>Social Media</h2>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Youtube</a>
+          <a href="#">Tik-Tok</a>
+        </div>
+        <div class="footer__heading">
+          <h2>contact us</h2>
+          <a href="#">763-280-1914</a>
+          <a href="#">admin@minnesofafurniture.com</a>
+        </div>
+        <div class="footer__emailForm">
+          <h2>Get Exculsive deals</h2>
+          <input type="email" id="footer__email" placeholder="Enter your email address">
+          <input type="submit" id="footer__button" onclick="addEmail()" value="Sign Up">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
