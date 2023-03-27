@@ -33,20 +33,40 @@
       <div class= "couch__list" v-for="(couch, index) in couches">
           <div class="couch__container" @mouseenter="displayArrow(index)"
           @mouseleave="removeArrow(index)">
+            <div v-if="couches[index].isActive == false">
+              <p>FREE DELIVERY</p>
+              <p>- Will move it right into your home</p>
+              <p>- {{couches[index].d1}}</p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+              <p><br></p>
+            </div>
             <img :src="couches[index].current" 
-             @click="nextImage(couches[index].key)" 
-             class="couch__image">
-             <img v-if="couches[index].hover" @click="nextImage(couches[index].key)" 
+             @click="nextImage(couches[index])" 
+             class="couch__image"
+             v-if="couches[index].isActive">
+             <img v-if="couches[index].hover" @click="nextImage(couches[index])" 
              src="img/arrowright.png" alt="arrow pic" id="couch__container__arrow">
             <p>{{couches[index].title}}</p>
             <p>{{couches[index].price}}</p>
+            <p class="couch__description" @click="description(index)">Description</p>
             <button class="couch__button" @click="scroll">More Information</button>
           </div>
         </div>
       <hr class="sectionals__line__form" width="80%">
       <h1 class="sectionals__contact">Contact Us</h1>
       <div class="sectionals__form">
-        <form action="connect.php" method="post">
+        <form method="post" action="mail.php">
           <input type="text" name="Name" id="name" placeholder="Your Name" required>
           <input type="email" name="Email" id="email" placeholder="Email Address" required>
           <input type="phone" name="Phone" id="phone" placeholder="phone number">

@@ -234,8 +234,16 @@ p{
     margin-top: 3rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 550px;
-    height: 416px;
+    height: 430px;
     background-color: white;
+  }
+
+  .couch__description{
+    cursor: pointer;
+  }
+
+  .couch__description:hover{
+    text-decoration: underline;
   }
 
   .couch__image{
@@ -268,7 +276,6 @@ p{
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  margin-top: .5rem;
 }
 
 .couch__button:not([disabled]):hover {
@@ -283,7 +290,7 @@ p{
     position: absolute;
     width: 30px;
     right: 10px;
-    top: 70%;
+    top: 67%;
     cursor: pointer;
   }
   
